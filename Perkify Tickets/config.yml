@@ -14,7 +14,7 @@ Version: "1.2.4" # Don't change this!
 BotToken: "MTM4Mjk2NDI5MDI4NTMzODY2NQ.Gyvidy.SK8GtiaIPvozqzHKWuM4qmcQ8aUZ6UzPyGxYCM" # If you need help getting your BotToken please open a ticket here: http://discord.drakodevelopment.net
 GuildID: "1382924606859378758" # This is your server's ID, Right click on your server icon and copy ID
 BotName: "Perkify Tickets"
-MongoURI: "MONGO_URI" # https://docs.plexdevelopment.net/plex-licenses/creating-a-mongodb-cluster
+MongoURI: "mongodb+srv://Aspect_admin:Silent$Crown84@aspectcluster.ojppk7u.mongodb.net/?retryWrites=true&w=majority&appName=AspectCluster" # https://docs.plexdevelopment.net/plex-licenses/creating-a-mongodb-cluster
 Statistics: true
 
 Timezone: "America/New_York" # Use https://gist.github.com/diogocapela/12c6617fc87607d11fd62d2a4f42b02a 
@@ -52,7 +52,7 @@ BotActivitySettings:
 # ===========================================================================
 Permissions: # Who can use these commands?
   crypto: ["ROLE_ID", "ROLE_ID"]
-  blacklist: ["ROLE_ID", "ROLE_ID"]
+  blacklist: ["1382948353330909286", "1382925452120690688"]
 
 
 # ===========================================================================
@@ -61,11 +61,11 @@ Permissions: # Who can use these commands?
 PayPalSettings:
   ClientID: "CLIENT_ID" # Paypal Client ID
   Secret: "SECRET" # Paypal Client Secret
-  AllowedRoles: ["ROLE_ID"] # Users with these roles can use the paypal command, You can add multiple roles
+  AllowedRoles: ["1382925452120690688"] # Users with these roles can use the paypal command, You can add multiple roles
   Email: "EMAIL@GMAIL.COM" # The PayPal accounts email
-  Currency: "GBP"
-  Symbol: "£"
-  CustomerRole: ["ROLE_ID"] # Will be assigned once the invoice is paid. Leave blank to disable
+  Currency: "USD"
+  Symbol: "$"
+  CustomerRole: ["1382945562856525844"] # Will be assigned once the invoice is paid. Leave blank to disable
   Sandbox: true
 
 # ===========================================================================
