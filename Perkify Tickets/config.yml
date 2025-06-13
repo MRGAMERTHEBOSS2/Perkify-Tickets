@@ -11,8 +11,8 @@
 # You must not leave them as blank!
 # ===========================================================================
 Version: "1.2.4" # Don't change this!
-BotToken: "BOT_TOKEN" # If you need help getting your BotToken please open a ticket here: http://discord.drakodevelopment.net
-GuildID: "GUILD_ID" # This is your server's ID, Right click on your server icon and copy ID
+BotToken: "MTM4Mjk2NDI5MDI4NTMzODY2NQ.Gyvidy.SK8GtiaIPvozqzHKWuM4qmcQ8aUZ6UzPyGxYCM" # If you need help getting your BotToken please open a ticket here: http://discord.drakodevelopment.net
+GuildID: "1382924606859378758" # This is your server's ID, Right click on your server icon and copy ID
 BotName: "Perkify Tickets"
 MongoURI: "MONGO_URI" # https://docs.plexdevelopment.net/plex-licenses/creating-a-mongodb-cluster
 Statistics: true
