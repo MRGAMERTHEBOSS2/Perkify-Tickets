@@ -59,10 +59,10 @@ Permissions: # Who can use these commands?
 # PAYPAL CONFIGURATION 
 # ===========================================================================
 PayPalSettings:
-  ClientID: "CLIENT_ID" # Paypal Client ID
-  Secret: "SECRET" # Paypal Client Secret
+  ClientID: "ATRAxXF8OJDyh6TjXK_lzIbI-zpeTfh7lgVtnmWx2dke6TL-nBAcPS2sba0nV31UFMWQsc1dNEeoUNEA" # Paypal Client ID
+  Secret: "EPBcaYVVbzzmc30y856ZvrmZlGYYHFFXMLibgEwtl4drc_iAehp_5Z2L1QTqxjw9a57_PSVIctp2S_xD" # Paypal Client Secret
   AllowedRoles: ["1382925452120690688"] # Users with these roles can use the paypal command, You can add multiple roles
-  Email: "EMAIL@GMAIL.COM" # The PayPal accounts email
+  Email: "tylergayle13@GMAIL.COM" # The PayPal accounts email
   Currency: "USD"
   Symbol: "$"
   CustomerRole: ["1382945562856525844"] # Will be assigned once the invoice is paid. Leave blank to disable
