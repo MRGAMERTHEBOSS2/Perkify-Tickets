@@ -81,7 +81,7 @@ API: # Required for transaction tracking
 # ===========================================================================
 TicketSettings:
   Enabled: true
-  LogsChannelID: "CHANNEL_ID" # The log won't be sent if it's ""
+  LogsChannelID: "1382938741525577748" # The log won't be sent if it's ""
   MaxTickets: 1
   DeletionTime: "5s" # In seconds, set to 0 for instant delete
   useSelectMenu: true
@@ -110,7 +110,7 @@ Priority:
 
 WorkingHours:
   Enabled: true
-  Timezone: "Europe/London" # https://gist.github.com/diogocapela/12c6617fc87607d11fd62d2a4f42b02a
+  Timezone: "US/Eastern" # https://gist.github.com/diogocapela/12c6617fc87607d11fd62d2a4f42b02a
   Schedule: 
     Monday: "16:00-22:00"
     Tuesday: "16:00-22:00"
@@ -120,7 +120,7 @@ WorkingHours:
     Saturday: "16:00-22:00"
     Sunday: "10:00-11:00"
   allowOpenTickets: true # Should people be able to open tickets during the off hours? 
-  Bypass: ["ROLE_ID", "ROLE_ID"]
+  Bypass: ["1382945315841245184", "ROLE_ID"]
 
 WorkingEmbed: # This will be posted in the ticket if it's raised out of hours
   Embed:
@@ -131,13 +131,13 @@ WorkingEmbed: # This will be posted in the ticket if it's raised out of hours
       - " "
       - "Our working hours are between {workinghours_start} and {workinghours_end}."
     Footer:
-      Text: "Drako Development | Ticket System"
-      Icon: "https://i.imgur.com/w5XxKpc.png"
+      Text: "Perkify | Ticket System"
+      Icon: ""
     Author:
-      Text: "Drako Development Support"
-      Icon: "https://i.imgur.com/w5XxKpc.png"
+      Text: "Perkify Support"
+      Icon: ""
     Color: "#F44336"
-    Image: "https://images-ext-1.discordapp.net/external/OllWGq5ta58LX6KoA8yEVTMrI9L4BJ0iE_T0pE4TZvw/https/i.imgur.com/LbjDuZ8.png?format=webp&quality=lossless&width=1618&height=403"
+    Image: ""
     Thumbnail: ""
 
 TicketPanelSettings:
@@ -145,7 +145,7 @@ TicketPanelSettings:
     Embed:
       Title: "📩 Support Tickets"
       Description:
-        - "Welcome to Drako Support!"
+        - "Welcome to Perkify Support!"
         - "Please choose a category below to create a ticket. Our support team will assist you shortly."
         - " "
         - "🕒 **Standard Working Hours**: {workinghours_start_monday} - {workinghours_end_monday}"
@@ -161,14 +161,14 @@ TicketPanelSettings:
           value: ""
           inline: true
       Footer:
-        Text: "Drako Development | Ticket System"
-        Icon: "https://i.imgur.com/w5XxKpc.png"
+        Text: "Perkify | Ticket System"
+        Icon: ""
       Author:
-        Text: "Drako Support Team"
-        Icon: "https://i.imgur.com/w5XxKpc.png"
+        Text: "Perkify Support Team"
+        Icon: ""
       Color: "#F44336"
-      Image: "https://i.imgur.com/1FGL7XO.png"
-      Thumbnail: "https://i.imgur.com/w5XxKpc.png"
+      Image: ""
+      Thumbnail: ""
 
   # Supports unlimited panels
 
@@ -193,13 +193,13 @@ TicketCreation:
         - "> Please describe your issue and our support team"
         - "> will be in touch shortly."
       Footer:
-        Text: "Drako Development | Ticket System"
-        Icon: "https://i.imgur.com/w5XxKpc.png"
+        Text: "Perkify | Ticket System"
+        Icon: ""
       Author:
         Text: ""
         Icon: ""
       Color: "#ADD8E6"
-      Image: "https://images-ext-1.discordapp.net/external/OllWGq5ta58LX6KoA8yEVTMrI9L4BJ0iE_T0pE4TZvw/https/i.imgur.com/LbjDuZ8.png?format=webp&quality=lossless&width=1618&height=403"
+      Image: ""
       Thumbnail: ""
 
   TicketType1: # TicketType
@@ -211,13 +211,13 @@ TicketCreation:
         - "> Please describe your issue and our support team"
         - "> will be in touch shortly."
       Footer:
-        Text: "Drako Development | Ticket System"
-        Icon: "https://i.imgur.com/w5XxKpc.png"
+        Text: "Perkify | Ticket System"
+        Icon: ""
       Author:
         Text: ""
         Icon: ""
       Color: "#ADD8E6"
-      Image: "https://images-ext-1.discordapp.net/external/OllWGq5ta58LX6KoA8yEVTMrI9L4BJ0iE_T0pE4TZvw/https/i.imgur.com/LbjDuZ8.png?format=webp&quality=lossless&width=1618&height=403"
+      Image: ""
       Thumbnail: ""
 
   TicketType2: # Example TicketType
@@ -229,13 +229,13 @@ TicketCreation:
         - "> Please describe your purchase issue and our support team"
         - "> will be in touch shortly."
       Footer:
-        Text: "Drako Development | Ticket System"
-        Icon: "https://i.imgur.com/w5XxKpc.png"
+        Text: "Perkify | Ticket System"
+        Icon: ""
       Author:
         Text: ""
         Icon: ""
       Color: "#FFD700"
-      Image: "https://images-ext-1.discordapp.net/external/OllWGq5ta58LX6KoA8yEVTMrI9L4BJ0iE_T0pE4TZvw/https/i.imgur.com/LbjDuZ8.png?format=webp&quality=lossless&width=1618&height=403"
+      Image: ""
       Thumbnail: ""
 
 QuestionDesign:
@@ -245,8 +245,8 @@ QuestionDesign:
       - "**{question}**"
       - "```{answer}```"
     Footer:
-      Text: "Drako Development | Ticket System"
-      Icon: "https://i.imgur.com/w5XxKpc.png"
+      Text: "Perkify | Ticket System"
+      Icon: ""
     Author:
       Text: ""
       Icon: ""
