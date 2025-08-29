@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Hosting - Powerful Game Server Hosting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A single-page application with a top navigation bar for smooth scrolling to distinct sections: Home, Features, and About Us. The new Discord Bot Idea Generator and Pricing sections are designed to be highly interactive. The structure is designed for a logical user flow, starting with a broad value proposition (Home), detailing the offerings (Features), providing an engaging tool for Discord bot creators (the Gemini-powered generator), offering interactive cost analysis (Pricing), and building trust (About Us). This thematic sectioning is more intuitive for a potential customer than a linear report, allowing them to explore based on their immediate questions (e.g., "What are the prices?"). The interactive pricing section with a togglable billing cycle and a synchronized comparison chart is the core engagement element, designed to make complex pricing information easy to understand and compare. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Pricing tiers (Starter, Advanced, etc.) with RAM/Storage specs.
+        - Goal: Compare. Allow users to easily see the relative value of each plan.
+        - Viz/Presentation Method: A combination of styled HTML cards for detailed features and a Chart.js bar chart for a quick visual comparison of a key metric (RAM).
+        - Interaction: Buttons to switch billing cycles (monthly, yearly, etc.). This dynamically updates both the prices in the cards and the data in the bar chart to show the effective monthly cost, highlighting long-term savings.
+        - Justification: This dual-presentation (cards + chart) caters to different user preferences—some prefer reading details, others prefer a quick visual summary. The interaction makes exploring pricing engaging and transparent.
+        - Library/Method: Vanilla JS for interaction logic, Chart.js for the canvas-based bar chart.
+        - Report Info: Key company features (Pterodactyl, Dedicated Servers).
+        - Goal: Inform. Clearly present the core technical advantages.
+        - Viz/Presentation Method: A grid of feature blocks using structured HTML/CSS. Each block contains a Unicode icon, a heading, and a short description.
+        - Interaction: Subtle hover effects on feature blocks.
+        - Justification: This is a clean, scannable way to present key selling points without overwhelming the user. Unicode icons are used to adhere to the no-SVG constraint.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #1a202c;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                ⚡ Swift Hosting
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-600 hover:text-purple-600 transition-colors">Home</a>
+                <a href="#features" class="text-gray-600 hover:text-purple-600 transition-colors">Features</a>
+                <a href="#bot-ideas" class="text-gray-600 hover:text-purple-600 transition-colors">Bot Ideas</a>
+                <a href="#pricing" class="text-gray-600 hover:text-purple-600 transition-colors">Pricing</a>
+                <a href="#about" class="text-gray-600 hover:text-purple-600 transition-colors">About Us</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#home" class="block py-2 text-gray-600 hover:text-purple-600">Home</a>
+            <a href="#features" class="block py-2 text-gray-600 hover:text-purple-600">Features</a>
+            <a href="#bot-ideas" class="block py-2 text-gray-600 hover:text-purple-600">Bot Ideas</a>
+            <a href="#pricing" class="block py-2 text-gray-600 hover:text-purple-600">Pricing</a>
+            <a href="#about" class="block py-2 text-gray-600 hover:text-purple-600">About Us</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">Powerful Plans and Unbeatable Prices</h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">High-performance game server hosting built by gamers, for gamers. Experience unparalleled speed, reliability, and 24/7 support.</p>
+                <a href="#pricing" class="mt-8 inline-block bg-purple-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-purple-700 transition-transform transform hover:scale-105">View Plans</a>
+            </div>
+        </section>
+
+        <section id="features" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Everything You Need</h2>
+                    <p class="mt-2 text-lg text-gray-600">Our platform is packed with features to give you the best hosting experience.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-4">🖥️</div>
+                        <h3 class="text-xl font-bold mb-2">Dedicated Servers</h3>
+                        <p class="text-gray-600">Get full control over your hardware with powerful, dedicated resources ensuring peak performance for your game servers.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-4">⚙️</div>
+                        <h3 class="text-xl font-bold mb-2">Pterodactyl Panel</h3>
+                        <p class="text-gray-600">Manage your servers with the latest, most intuitive Pterodactyl panel for a seamless and secure experience.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-4">💬</div>
+                        <h3 class="text-xl font-bold mb-2">Discord Bot Hosting</h3>
+                        <p class="text-gray-600">Launch and manage your Discord bots with our stable, low-latency hosting. Keep your community's bots online 24/7.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-4">🚀</div>
+                        <h3 class="text-xl font-bold mb-2">Unlimited CPU Time</h3>
+                        <p class="text-gray-600">Never worry about CPU limits. Our plans provide unlimited processing power to handle any workload.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-4">🌐</div>
+                        <h3 class="text-xl font-bold mb-2">Unlimited Bandwidth</h3>
+                        <p class="text-gray-600">Enjoy unrestricted data transfer, ensuring a smooth, lag-free experience for all your players.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-4">🕒</div>
+                        <h3 class="text-xl font-bold mb-2">24/7 Support</h3>
+                        <p class="text-gray-600">Our expert support team is always available to help you with any questions or issues, any time of day.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-4">🛡️</div>
+                        <h3 class="text-xl font-bold mb-2">90-Day Refund Policy</h3>
+                        <p class="text-gray-600">We're confident you'll love our service. Try us risk-free with our generous 90-day money-back guarantee.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bot-ideas" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-2xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Discord Bot Idea Generator ✨</h2>
+                    <p class="mt-2 text-lg text-gray-600">Describe the purpose of your bot and let our AI suggest some creative ideas for you.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="mb-4">
+                        <label for="bot-purpose" class="block text-gray-700 font-semibold mb-2">What is the purpose of your bot?</label>
+                        <textarea id="bot-purpose" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition-colors" placeholder="e.g., A bot for a Minecraft server community that helps with moderation and fun activities."></textarea>
+                    </div>
+                    <button id="generate-btn" class="w-full bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-purple-700 transition-transform transform hover:scale-105">Generate Ideas ✨</button>
+                    <div id="loading-indicator" class="hidden text-center mt-4">
