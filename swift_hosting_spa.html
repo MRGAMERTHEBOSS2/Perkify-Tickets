@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: A single-page application with a top navigation bar for smooth scrolling to distinct sections: Home, Features, and About Us. The new Discord Bot Idea Generator and Pricing sections are designed to be highly interactive. The structure is designed for a logical user flow, starting with a broad value proposition (Home), detailing the offerings (Features), providing an engaging tool for Discord bot creators (the Gemini-powered generator), offering interactive cost analysis (Pricing), and building trust (About Us). This thematic sectioning is more intuitive for a potential customer than a linear report, allowing them to explore based on their immediate questions (e.g., "What are the prices?"). The interactive pricing section with a togglable billing cycle and a synchronized comparison chart is the core engagement element, designed to make complex pricing information easy to understand and compare. -->
+    <!-- Application Structure Plan: A single-page application with a top navigation bar for smooth scrolling to distinct sections: Home, Features, Pricing, and About Us. The structure is designed for a logical user flow, starting with a broad value proposition (Home), detailing the offerings (Features), providing interactive cost analysis (Pricing), and building trust (About Us). This thematic sectioning is more intuitive for a potential customer than a linear report, allowing them to explore based on their immediate questions (e.g., "What are the prices?"). The interactive pricing section with a togglable billing cycle and a synchronized comparison chart is the core engagement element, designed to make complex pricing information easy to understand and compare. -->
     <!-- Visualization & Content Choices: 
         - Report Info: Pricing tiers (Starter, Advanced, etc.) with RAM/Storage specs.
         - Goal: Compare. Allow users to easily see the relative value of each plan.
@@ -52,7 +52,6 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="text-gray-600 hover:text-purple-600 transition-colors">Home</a>
                 <a href="#features" class="text-gray-600 hover:text-purple-600 transition-colors">Features</a>
-                <a href="#bot-ideas" class="text-gray-600 hover:text-purple-600 transition-colors">Bot Ideas</a>
                 <a href="#pricing" class="text-gray-600 hover:text-purple-600 transition-colors">Pricing</a>
                 <a href="#about" class="text-gray-600 hover:text-purple-600 transition-colors">About Us</a>
             </div>
@@ -65,7 +64,6 @@
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
             <a href="#home" class="block py-2 text-gray-600 hover:text-purple-600">Home</a>
             <a href="#features" class="block py-2 text-gray-600 hover:text-purple-600">Features</a>
-            <a href="#bot-ideas" class="block py-2 text-gray-600 hover:text-purple-600">Bot Ideas</a>
             <a href="#pricing" class="block py-2 text-gray-600 hover:text-purple-600">Pricing</a>
             <a href="#about" class="block py-2 text-gray-600 hover:text-purple-600">About Us</a>
         </div>
@@ -126,16 +124,276 @@
             </div>
         </section>
 
-        <section id="bot-ideas" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6 max-w-2xl">
+        <section id="pricing" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Discord Bot Idea Generator ✨</h2>
-                    <p class="mt-2 text-lg text-gray-600">Describe the purpose of your bot and let our AI suggest some creative ideas for you.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Choose Your Plan</h2>
+                    <p class="mt-2 text-lg text-gray-600">Select the perfect plan for your needs. Save more with longer billing cycles.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="mb-4">
-                        <label for="bot-purpose" class="block text-gray-700 font-semibold mb-2">What is the purpose of your bot?</label>
-                        <textarea id="bot-purpose" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition-colors" placeholder="e.g., A bot for a Minecraft server community that helps with moderation and fun activities."></textarea>
+
+                <div class="flex justify-center mb-8 bg-gray-100 p-2 rounded-lg max-w-md mx-auto">
+                    <button data-cycle="monthly" class="pricing-toggle-btn flex-1 py-2 px-4 rounded-md text-sm font-semibold transition-colors bg-purple-600 text-white">Monthly</button>
+                    <button data-cycle="6months" class="pricing-toggle-btn flex-1 py-2 px-4 rounded-md text-sm font-semibold transition-colors text-gray-600 hover:bg-gray-200">6 Months</button>
+                    <button data-cycle="1year" class="pricing-toggle-btn flex-1 py-2 px-4 rounded-md text-sm font-semibold transition-colors text-gray-600 hover:bg-gray-200">1 Year</button>
+                    <button data-cycle="3years" class="pricing-toggle-btn flex-1 py-2 px-4 rounded-md text-sm font-semibold transition-colors text-gray-600 hover:bg-gray-200">3 Years</button>
+                </div>
+
+                <div class="grid lg:grid-cols-4 gap-8">
+                    <div id="plan-starter" class="pricing-card border-2 border-gray-200 rounded-xl p-8 flex flex-col"></div>
+                    <div id="plan-advanced" class="pricing-card border-2 border-purple-600 rounded-xl p-8 flex flex-col relative">
+                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</div>
                     </div>
-                    <button id="generate-btn" class="w-full bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-purple-700 transition-transform transform hover:scale-105">Generate Ideas ✨</button>
-                    <div id="loading-indicator" class="hidden text-center mt-4">
+                    <div id="plan-ultimate" class="pricing-card border-2 border-gray-200 rounded-xl p-8 flex flex-col"></div>
+                    <div id="plan-scalable" class="pricing-card border-2 border-gray-200 rounded-xl p-8 flex flex-col"></div>
+                </div>
+
+                <div class="mt-16">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800">Plan Comparison: RAM & Effective Monthly Cost</h3>
+                        <p class="text-gray-600">See how resources and costs stack up. Longer plans offer significant savings!</p>
+                    </div>
+                    <div class="bg-white p-4 sm:p-6 rounded-xl shadow-md">
+                        <div class="chart-container">
+                            <canvas id="pricingChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Team Behind Swift Hosting</h2>
+                    <p class="mt-2 text-lg text-gray-600 max-w-2xl mx-auto">We are a passionate team dedicated to providing the best possible hosting experience for the gaming community.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="text-center w-48">
+                        <div class="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-2 flex items-center justify-center text-3xl">🧑‍🚀</div>
+                        <h4 class="font-bold">@vxtrustedtyler</h4>
+                        <p class="text-sm text-purple-600 font-semibold">Founder</p>
+                    </div>
+                    <div class="text-center w-48">
+                        <div class="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-2 flex items-center justify-center text-3xl">🧑‍🚀</div>
+                        <h4 class="font-bold">@qocepombtv</h4>
+                        <p class="text-sm text-purple-600 font-semibold">Co-Founder</p>
+                    </div>
+                    <div class="text-center w-48">
+                        <div class="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-2 flex items-center justify-center text-3xl">👨‍💻</div>
+                        <h4 class="font-bold">@drfwy</h4>
+                        <p class="text-sm text-purple-600 font-semibold">Chief Technology Officer</p>
+                    </div>
+                    <div class="text-center w-48">
+                        <div class="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-2 flex items-center justify-center text-3xl">📈</div>
+                        <h4 class="font-bold">@itzbhulux</h4>
+                        <p class="text-sm text-purple-600 font-semibold">Chief Marketing Officer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-600">
+            <p>&copy; 2025 Swift Hosting. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pricingData = {
+                starter: {
+                    name: 'Starter',
+                    prices: { monthly: 1.00, '6months': 5.40, '1year': 9.60, '3years': 27.00 },
+                    features: ['512MB RAM', '15GB Storage', 'Unlimited CPU Time', 'Unlimited Bandwidth', '24/7 Support']
+                },
+                advanced: {
+                    name: 'Advanced',
+                    prices: { monthly: 3.50, '6months': 18.90, '1year': 33.60, '3years': 94.50 },
+                    features: ['1024MB RAM', '30GB Storage', 'Unlimited CPU Time', 'Unlimited Bandwidth', '24/7 Support']
+                },
+                ultimate: {
+                    name: 'Ultimate',
+                    prices: { monthly: 8.00, '6months': 43.20, '1year': 76.80, '3years': 216.00 },
+                    features: ['2048MB RAM', '60GB Storage', 'Unlimited CPU Time', 'Unlimited Bandwidth', '24/7 Support']
+                },
+                scalable: {
+                    name: 'Scalable',
+                    prices: { monthly: 16.00, '6months': 86.40, '1year': 153.60, '3years': 432.00 },
+                    features: ['Up to 12288MB RAM', 'Up to 1000GB Storage', 'Unlimited CPU Time', 'Unlimited Bandwidth', '24/7 Support']
+                }
+            };
+
+            const cycleDividers = { monthly: 1, '6months': 6, '1year': 12, '3years': 36 };
+            const cycleLabels = { monthly: '/ month', '6months': 'for 6 months', '1year': 'for 1 year', '3years': 'for 3 years' };
+            
+            let currentCycle = 'monthly';
+            let pricingChart;
+
+            const updatePricing = () => {
+                const toggleButtons = document.querySelectorAll('.pricing-toggle-btn');
+                toggleButtons.forEach(btn => {
+                    if (btn.dataset.cycle === currentCycle) {
+                        btn.classList.add('bg-purple-600', 'text-white');
+                        btn.classList.remove('text-gray-600', 'hover:bg-gray-200');
+                    } else {
+                        btn.classList.remove('bg-purple-600', 'text-white');
+                        btn.classList.add('text-gray-600', 'hover:bg-gray-200');
+                    }
+                });
+
+                Object.keys(pricingData).forEach(planKey => {
+                    const plan = pricingData[planKey];
+                    const card = document.getElementById(`plan-${planKey}`);
+                    const price = plan.prices[currentCycle];
+                    const priceDisplay = currentCycle === 'monthly' ? `$${price.toFixed(2)}` : `$${price.toFixed(2)}`;
+                    const cycleLabel = cycleLabels[currentCycle];
+                    const effectiveMonthly = (price / cycleDividers[currentCycle]).toFixed(2);
+                    
+                    let cardHTML = `
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">${plan.name}</h3>
+                        <div class="mb-6">
+                            <span class="text-5xl font-extrabold text-gray-900">${priceDisplay}</span>
+                            <span class="text-gray-500">${cycleLabel}</span>
+                        </div>
+                        ${currentCycle !== 'monthly' ? `<p class="text-sm text-gray-500 mb-6">That's only $${effectiveMonthly}/month!</p>` : '<p class="text-sm text-gray-500 mb-6">&nbsp;</p>'}
+                        <ul class="space-y-4 text-gray-600 mb-8 flex-grow">
+                            ${plan.features.map(feature => `
+                                <li class="flex items-center">
+                                    <span class="text-purple-600 mr-2">✓</span>
+                                    ${feature}
+                                </li>`).join('')}
+                        </ul>
+                        <a href="#" class="w-full text-center bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors mt-auto">Start Now</a>
+                    `;
+                    card.innerHTML = cardHTML;
+                });
+
+                updateChart();
+            };
+
+            const createChart = () => {
+                const ctx = document.getElementById('pricingChart').getContext('2d');
+                pricingChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: 'RAM (MB)',
+                                data: [],
+                                backgroundColor: 'rgba(168, 85, 247, 0.2)',
+                                borderColor: 'rgba(168, 85, 247, 1)',
+                                borderWidth: 1,
+                                yAxisID: 'yRam',
+                            },
+                            {
+                                label: 'Effective Monthly Cost ($)',
+                                data: [],
+                                backgroundColor: 'rgba(76, 29, 149, 0.2)',
+                                borderColor: 'rgba(76, 29, 149, 1)',
+                                borderWidth: 1,
+                                yAxisID: 'yCost',
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            yRam: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                title: {
+                                    display: true,
+                                    text: 'RAM (MB)'
+                                },
+                                ticks: {
+                                    callback: function(value) {
+                                        if (value >= 1024) return (value / 1024) + ' GB';
+                                        return value + ' MB';
+                                    }
+                                }
+                            },
+                            yCost: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                title: {
+                                    display: true,
+                                    text: 'Effective Monthly Cost ($)'
+                                },
+                                grid: {
+                                    drawOnChartArea: false,
+                                }
+                            }
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            if (context.datasetIndex === 0) {
+                                                const value = context.parsed.y;
+                                                if (value >= 1024) label += (value / 1024) + ' GB';
+                                                else label += value + ' MB';
+                                            } else {
+                                                label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                                            }
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            };
+
+            const updateChart = () => {
+                const labels = Object.values(pricingData).map(p => p.name);
+                const ramData = Object.values(pricingData).map(p => {
+                    const ramFeature = p.features.find(f => f.includes('RAM'));
+                    return parseInt(ramFeature.replace(/[^0-9]/g, ''));
+                });
+                const costData = Object.values(pricingData).map(p => {
+                    const price = p.prices[currentCycle];
+                    return (price / cycleDividers[currentCycle]).toFixed(2);
+                });
+
+                pricingChart.data.labels = labels;
+                pricingChart.data.datasets[0].data = ramData;
+                pricingChart.data.datasets[1].data = costData;
+                pricingChart.update();
+            };
+
+            document.querySelectorAll('.pricing-toggle-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    currentCycle = button.dataset.cycle;
+                    updatePricing();
+                });
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            createChart();
+            updatePricing();
+        });
+    </script>
+</body>
+</html>
